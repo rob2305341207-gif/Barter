@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Skill Exchange Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Skill Exchange</h1>
+                <ul class="nav-menu">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="chat.html">Messages</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-container">
+            <div class="profile-header">
+                <img id="profilePhoto" src="" alt="Profile Photo" class="profile-photo">
+                <div class="profile-info">
+                    <h2 id="profileName">User Name</h2>
+                    <p id="profileEmail">user@example.com</p>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <section class="profile-section">
+                    <h3>About Me</h3>
+                    <textarea id="aboutMe" placeholder="Tell us about yourself..." rows="4"></textarea>
+                </section>
+
+                <section class="profile-section">
+                    <h3>Skills I Can Teach</h3>
+                    <div id="teachSkills" class="skills-tags">
+                        <!-- Skills will be displayed here -->
+                    </div>
+                    <input type="text" id="newSkillInput" placeholder="Add a skill...">
+                    <button class="btn btn-secondary">Add Skill</button>
+                </section>
+
+                <section class="profile-section">
+                    <h3>Skills I Want to Learn</h3>
+                    <div id="learnSkills" class="skills-tags">
+                        <!-- Learning interests will be displayed here -->
+                    </div>
+                    <input type="text" id="newInterestInput" placeholder="Add an interest...">
+                    <button class="btn btn-secondary">Add Interest</button>
+                </section>
+
+                <section class="profile-actions">
+                    <button id="saveProfile" class="btn btn-primary">Save Changes</button>
+                    <button id="deleteProfile" class="btn btn-danger">Delete Account</button>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Skill Exchange Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

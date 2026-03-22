@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barter — Exchange Skills, Build Teams</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><i class="fas fa-exchange-alt"></i> Barter</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="burger"></span>
+      </button>
+
+      <nav class="nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a class="nav-link home-btn" href="index.html">Home</a></li>
+          <li><a class="nav-link dashboard-btn" href="dashboard.html">Dashboard</a></li>
+          <li><a class="nav-link login-btn" href="login.html">Login</a></li>
+          <li><a class="nav-link register-btn" href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1 class="hero-title">Exchange Skills, Build Teams, Win Together</h1>
+          <p class="hero-sub">Join Barter — the ultimate platform for students to trade skills, form startup teams, and dominate hackathons & competitions.</p>
+
+          <div class="hero-cta">
+            <a class="cta-primary" href="register.html"><i class="fas fa-rocket"></i> Get Started</a>
+            <a class="cta-secondary" href="team-find.html"><i class="fas fa-users"></i> Find Teammates</a>
+            <a class="cta-ghost" href="#features">Learn More</a>
+          </div>
+
+          <ul class="meta-list">
+            <li><i class="fas fa-check-circle"></i> <strong>100% Free</strong></li>
+            <li><i class="fas fa-check-circle"></i> <strong>Peer-to-Peer</strong></li>
+            <li><i class="fas fa-check-circle"></i> <strong>Campus Focused</strong></li>
+            <li><i class="fas fa-check-circle"></i> <strong>Team Building</strong></li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-glass">
+            <div class="card-header">
+              <div class="avatar">RU</div>
+              <div>
+                <div class="name">Rahim Uddin</div>
+                <div class="small">Teaches: Photoshop, UI Design</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="small muted">Looking for <strong>React Developer</strong> for Hackathon team</p>
+              <div class="skill-chips">
+                <span class="chip">UI/UX</span>
+                <span class="chip">Figma</span>
+                <span class="chip">Team Lead</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="small-btn"><i class="fas fa-envelope"></i> Message</button>
+              <button class="small-btn outline"><i class="fas fa-user-plus"></i> Invite</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+      <div class="container">
+        <h2 class="section-title">Why Choose Barter?</h2>
+        <p class="section-sub">Everything you need to grow your skills and build winning teams.</p>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-icon"><i class="fas fa-handshake-angle"></i></div>
+            <h3>Skill Exchange</h3>
+            <p>Teach what you know, learn what you need. Direct peer-to-peer skill trading.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <h3>Team Formation</h3>
+            <p>Find teammates for hackathons, startups, and group projects based on complementary skills.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+            <h3>Competition Hub</h3>
+            <p>Post and find competitions. Create circulars for specific skill requirements.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><i class="fas fa-comments"></i></div>
+            <h3>Real-time Chat</h3>
+            <p>Built-in messaging to coordinate with your team and exchange partners.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><i class="fas fa-star"></i></div>
+            <h3>Ratings & Reviews</h3>
+            <p>Build your reputation. Earn badges for teaching and collaboration.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Verified Campus</h3>
+            <p>University email verification ensures a safe, student-only community.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div>
+          <h2>Ready to start your journey?</h2>
+          <p>Join thousands of students already exchanging skills and building teams.</p>
+        </div>
+        <div style="display:flex;gap:12px;">
+          <a class="cta-primary large" href="register.html">Join Barter — It's Free</a>
+          <a class="cta-ghost large" href="competitions.html">Browse Competitions</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Barter — Built for Collaborative Learning</p>
+      <p class="muted small">Made with <i class="fas fa-heart" style="color:var(--danger);"></i> by students, for students</p>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    navToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', () => {
+      if (mainNav.classList.contains('open')) {
+        mainNav.classList.remove('open');
+      }
+    }));
+  </script>
+  <!-- Firebase SDKs (add before other scripts) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-init.js"></script>
+</body>
+</html>

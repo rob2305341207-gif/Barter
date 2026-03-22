@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Barter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><i class="fas fa-exchange-alt"></i> Barter</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="burger"></span>
+      </button>
+      <nav class="nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a class="nav-link home-btn" href="index.html">Home</a></li>
+          <li><a class="nav-link login-btn" href="login.html">Login</a></li>
+          <li><a class="nav-link register-btn" href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section class="auth-container">
+      <div class="auth-card" style="max-width:600px;">
+        <h1 class="auth-title"><i class="fas fa-user-plus" style="color:var(--neon);"></i> Join Barter</h1>
+        <p class="auth-subtitle">Start exchanging skills with your campus community</p>
+        
+        <form id="registerForm">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" class="form-input" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="university">University/Department</label>
+              <input type="text" id="university" name="university" class="form-input" placeholder="e.g. CSE, BUET" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@university.edu" required>
+          </div>
+          
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label" for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-input" placeholder="Min 6 characters" required minlength="6">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="Re-type password" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="teachSkills">Skills I Can Teach (comma separated)</label>
+            <input type="text" id="teachSkills" name="teachSkills" class="form-input" placeholder="e.g. Photoshop, Python, Public Speaking">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="learnSkills">Skills I Want to Learn (comma separated)</label>
+            <input type="text" id="learnSkills" name="learnSkills" class="form-input" placeholder="e.g. React, Machine Learning, Guitar">
+          </div>
+          
+          <div style="margin:20px 0;">
+            <label style="display:flex;align-items:start;gap:10px;color:var(--muted);font-size:0.9rem;cursor:pointer;">
+              <input type="checkbox" id="agreeTerms" required style="accent-color:var(--neon);margin-top:3px;">
+              <span>I agree to the <a href="#" style="color:var(--neon);">Terms of Service</a> and <a href="#" style="color:var(--neon);">Privacy Policy</a></span>
+            </label>
+          </div>
+          
+          <button type="submit" class="cta-primary" style="width:100%;padding:14px;">
+            <i class="fas fa-user-plus"></i> Create Account
+          </button>
+        </form>
+        
+        <div class="auth-links">
+          <p>Already have an account? <a href="login.html">Sign in</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Barter — Skill Exchange Platform</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    navToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+    });
+
+    // Form handling
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const fullName = document.getElementById('fullName').value;
+      const university = document.getElementById('university').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const teachSkills = document.getElementById('teachSkills').value.split(',').map(s => s.trim()).filter(s => s);
+      const learnSkills = document.getElementById('learnSkills').value.split(',').map(s => s.trim()).filter(s => s);
+
+      const result = await authManager.register(fullName, email, password, confirmPassword, { university });
+      if (result.success) {
+        // enrich user locally
+        const user = result.user;
+        user.university = university;
+        user.skills = teachSkills;
+        user.interests = learnSkills;
+        // save to local users list if API unavailable
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        const idx = users.findIndex(u => u.email === user.email);
+        if (idx === -1) {
+          users.push(user);
+          localStorage.setItem('users', JSON.stringify(users));
+        }
+        window.location.href = 'dashboard.html';
+      } else {
+        alert(result.message || 'Registration failed');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Teams - Barter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html"><i class="fas fa-exchange-alt"></i> Barter</a>
+            <button class="nav-toggle" id="navToggle">
+                <span class="burger"></span>
+            </button>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a class="nav-link home-btn" href="index.html">Home</a></li>
+                    <li><a class="nav-link dashboard-btn" href="dashboard.html">Dashboard</a></li>
+                    <li><a class="nav-link profile-btn" href="profile.html">Profile</a></li>
+                    <li><a class="nav-link messages-btn" href="chat.html">Messages</a></li>
+                    <li><a class="nav-link logout-btn" id="logoutBtn" href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding:40px 0;">
+        <div class="container">
+            <div class="card-glass" style="padding:32px;text-align:center;">
+                <h1><i class="fas fa-users" style="color:var(--neon);"></i> Find Teams</h1>
+                <p>This feature is coming soon! For now, you can create teams from the dashboard.</p>
+                <a href="dashboard.html" class="cta-primary">Go to Dashboard</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+        navToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('open');
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

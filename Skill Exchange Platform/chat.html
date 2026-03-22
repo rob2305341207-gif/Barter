@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Barter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a class="brand" href="index.html"><i class="fas fa-exchange-alt"></i> Barter</a>
+                <ul class="nav-menu">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="chat.html">Messages</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="chat-container">
+            <div class="chat-sidebar">
+                <div class="contacts-search">
+                    <input type="text" id="searchContacts" class="search-input" placeholder="Search contacts...">
+                </div>
+                <div id="contactsList" class="contacts-list">
+                    <!-- Contacts will be loaded here -->
+                </div>
+            </div>
+
+            <div class="chat-main">
+                <div class="chat-header">
+                    <h2 id="chatName">Select a conversation</h2>
+                </div>
+
+                <div id="chatMessages" class="messages-container">
+                    <!-- Messages will be loaded here -->
+                </div>
+
+                <div class="chat-input-area">
+                    <input type="text" id="messageInput" class="chat-input" placeholder="Type your message...">
+                    <button id="sendBtn" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Skill Exchange Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="js/chat.js"></script>
+</body>
+</html>
