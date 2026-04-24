@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Team - Barter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><i class="fas fa-exchange-alt"></i> Barter</a>
+      <button class="nav-toggle" id="navToggle"><span class="burger"></span></button>
+      <nav class="nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a class="nav-link home-btn" href="index.html">Home</a></li>
+          <li><a class="nav-link dashboard-btn" href="dashboard.html">Dashboard</a></li>
+          <li><a class="nav-link profile-btn" href="profile.html">Profile</a></li>
+          <li><a class="nav-link messages-btn" href="chat.html">Messages</a></li>
+          <li><a class="nav-link logout-btn" href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main style="padding:40px 0;">
+    <div class="container" style="max-width:900px;">
+      <div class="card-glass" style="padding:32px;">
+        <div style="margin-bottom:24px;">
+          <h1 style="margin:0;color:#eafff5;"><i class="fas fa-plus-circle" style="color:var(--neon);"></i> Create New Team</h1>
+          <p style="margin:8px 0 0;color:var(--muted);">Build your dream team for competitions, startups, or projects</p>
+        </div>
+
+        <form id="teamCreateForm">
+          <!-- Team Type -->
+          <div class="form-group">
+            <label class="form-label">Team Type</label>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <label style="flex:1;min-width:150px;cursor:pointer;">
+                <input type="radio" name="teamType" value="hackathon" checked style="display:none;">
+                <div class="team-type-card" style="padding:16px;border:2px solid rgba(255,255,255,0.06);border-radius:12px;text-align:center;transition:all 0.3s;" onclick="selectType(this)">
+                  <i class="fas fa-laptop-code" style="font-size:2rem;color:var(--neon);margin-bottom:8px;"></i>
+                  <div style="font-weight:700;color:#eafff5;">Hackathon</div>
+                  <div style="font-size:0.85rem;color:var(--muted);">24-48 hour coding event</div>
+                </div>
+              </label>
+              <label style="flex:1;min-width:150px;cursor:pointer;">
+                <input type="radio" name="teamType" value="startup" style="display:none;">
+                <div class="team-type-card" style="padding:16px;border:2px solid rgba(255,255,255,0.06);border-radius:12px;text-align:center;transition:all 0.3s;" onclick="selectType(this)">
+                  <i class="fas fa-rocket" style="font-size:2rem;color:var(--warning);margin-bottom:8px;"></i>
+                  <div style="font-weight:700;color:#eafff5;">Startup</div>
+                  <div style="font-size:0.85rem;color:var(--muted);">Long-term venture</div>
+                </div>
+              </label>
+              <label style="flex:1;min-width:150px;cursor:pointer;">
+                <input type="radio" name="teamType" value="competition" style="display:none;">
+                <div class="team-type-card" style="padding:16px;border:2px solid rgba(255,255,255,0.06);border-radius:12px;text-align:center;transition:all 0.3s;" onclick="selectType(this)">
+                  <i class="fas fa-trophy" style="font-size:2rem;color:var(--info);margin-bottom:8px;"></i>
+                  <div style="font-weight:700;color:#eafff5;">Competition</div>
+                  <div style="font-size:0.85rem;color:var(--muted);">Case study, debate, etc.</div>
+                </div>
+              </label>
+              <label style="flex:1;min-width:150px;cursor:pointer;">
+                <input type="radio" name="teamType" value="project" style="display:none;">
+                <div class="team-type-card" style="padding:16px;border:2px solid rgba(255,255,255,0.06);border-radius:12px;text-align:center;transition:all 0.3s;" onclick="selectType(this)">
+                  <i class="fas fa-project-diagram" style="font-size:2rem;color:var(--accent-1);margin-bottom:8px;"></i>
+                  <div style="font-weight:700;color:#eafff5;">Group Project</div>
+                  <div style="font-size:0.85rem;color:var(--muted);">Academic assignment</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Basic Info -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label" for="teamName">Team/Project Name</label>
+              <input type="text" id="teamName" class="form-input" placeholder="e.g. CodeBreakers" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="competitionName">Competition/Event Name (Optional)</label>
+              <input type="text" id="competitionName" class="form-input" placeholder="e.g. NASA Space Apps">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="description">Description</label>
+            <textarea id="description" class="profile-textarea" rows="3" placeholder="Describe your project, goals, and what makes your team special..." required></textarea>
+          </div>
+
+          <!-- Skills Needed -->
+          <div class="form-group">
+            <label class="form-label">Skills Needed</label>
+            <div id="skillsContainer" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+              <!-- Skills will be added here -->
+            </div>
+            <div style="display:flex;gap:8px;">
+              <input type="text" id="skillInput" class="form-input" placeholder="e.g. React, Python, UI Design" style="flex:1;">
+              <button type="button" class="small-btn" onclick="addSkill()"><i class="fas fa-plus"></i> Add</button>
+            </div>
+            <small style="color:var(--muted);">Press Enter or click Add to include skills</small>
+          </div>
+
+          <!-- Team Size & Deadline -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label" for="teamSize">Team Size Needed</label>
+              <select id="teamSize" class="form-input">
+                <option value="2">2 members</option>
+                <option value="3" selected>3 members</option>
+                <option value="4">4 members</option>
+                <option value="5">5 members</option>
+                <option value="6+">6+ members</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="deadline">Application Deadline</label>
+              <input type="date" id="deadline" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="university">University (if restricted)</label>
+              <input type="text" id="university" class="form-input" placeholder="Any university">
+            </div>
+          </div>
+
+          <!-- Additional Options -->
+          <div style="background:rgba(255,255,255,0.03);padding:16px;border-radius:12px;margin:20px 0;">
+            <h4 style="margin:0 0 12px 0;color:#eafff5;"><i class="fas fa-cog"></i> Additional Options</h4>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <label style="display:flex;align-items:center;gap:10px;color:var(--muted);cursor:pointer;">
+                <input type="checkbox" id="requireResume" style="accent-color:var(--neon);">
+                <span>Require resume/portfolio</span>
+              </label>
+              <label style="display:flex;align-items:center;gap:10px;color:var(--muted);cursor:pointer;">
+                <input type="checkbox" id="autoMatch" checked style="accent-color:var(--neon);">
+                <span>Auto-suggest matching members</span>
+              </label>
+              <label style="display:flex;align-items:center;gap:10px;color:var(--muted);cursor:pointer;">
+                <input type="checkbox" id="isPublic" checked style="accent-color:var(--neon);">
+                <span>Make this team visible in circulars</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;justify-content:flex-end;">
+            <a href="dashboard.html" class="cta-ghost">Cancel</a>
+            <button type="submit" class="cta-primary" style="padding:12px 24px;">
+              <i class="fas fa-rocket"></i> Create Team
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Barter — Skill Exchange Platform</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('mainNav').classList.toggle('open');
+    });
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('currentUser');
+      window.location.href = 'login.html';
+    });
+
+    // Team Type Selection
+    function selectType(element) {
+      document.querySelectorAll('.team-type-card').forEach(card => {
+        card.style.borderColor = 'rgba(255,255,255,0.06)';
+        card.style.background = 'transparent';
+      });
+      element.style.borderColor = 'var(--neon)';
+      element.style.background = 'rgba(0,255,153,0.1)';
+    }
+
+    // Initialize first selection
+    document.querySelector('.team-type-card').style.borderColor = 'var(--neon)';
+    document.querySelector('.team-type-card').style.background = 'rgba(0,255,153,0.1)';
+
+    // Skills Management
+    let neededSkills = [];
+    
+    function addSkill() {
+      const input = document.getElementById('skillInput');
+      const skill = input.value.trim();
+      if (skill && !neededSkills.includes(skill)) {
+        neededSkills.push(skill);
+        renderSkills();
+        input.value = '';
+      }
+    }
+
+    function removeSkill(skill) {
+      neededSkills = neededSkills.filter(s => s !== skill);
+      renderSkills();
+    }
+
+    function renderSkills() {
+      const container = document.getElementById('skillsContainer');
+      container.innerHTML = neededSkills.map(skill => `
+        <span class="skill-tag">
+          ${skill}
+          <span class="remove" onclick="removeSkill('${skill}')"><i class="fas fa-times"></i></span>
+        </span>
+      `).join('');
+    }
+
+    document.getElementById('skillInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        addSkill();
+      }
+    });
+
+    // Form Submission
+    document.getElementById('teamCreateForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const currentUser = authManager.getCurrentUser();
+      if (!currentUser) {
+        alert('Please login first!');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      try {
+        const res = await fetch('api/users.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'createTeam',
+            name: document.getElementById('teamName').value,
+            description: document.getElementById('description').value,
+            type: document.querySelector('input[name="teamType"]:checked').value,
+            createdBy: currentUser.id,
+            skillsNeeded: neededSkills,
+            teamSize: document.getElementById('teamSize').value,
+            deadline: document.getElementById('deadline').value,
+            university: document.getElementById('university').value,
+            requireResume: document.getElementById('requireResume').checked,
+            autoMatch: document.getElementById('autoMatch').checked,
+            isPublic: document.getElementById('isPublic').checked,
+            status: 'active'
+          })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          alert('Team created successfully!');
+          window.location.href = 'dashboard.html';
+        } else {
+          alert(data.message || 'Failed to create team');
+        }
+      } catch (e) {
+        alert('Error creating team: ' + e.message);
+      }
+    });
+
+    // Set default deadline to 7 days from now
+    const nextWeek = new Date();
+    nextWeek.setDate(nextWeek.getDate() + 7);
+    document.getElementById('deadline').value = nextWeek.toISOString().split('T')[0];
+  </script>
+</body>
+</html>
