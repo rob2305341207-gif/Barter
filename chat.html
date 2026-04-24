@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Barter</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html"><i class="fas fa-exchange-alt"></i> Barter</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="burger"></span>
+            </button>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="index.html">Home</a></li>
+                    <li><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li><a class="nav-link" href="chat.html">Messages</a></li>
+                    <li><a class="nav-link" href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="min-height:calc(100vh - 120px);padding:20px 0;">
+        <div class="container">
+        <section class="chat-container">
+            <div class="chat-sidebar">
+                <div class="contacts-search">
+                    <input type="text" id="searchContacts" class="search-input" placeholder="Search contacts...">
+                </div>
+                <div id="contactsList" class="contacts-list">
+                    <!-- Contacts will be loaded here -->
+                </div>
+            </div>
+
+            <div class="chat-main">
+                <div class="chat-header">
+                    <h2 id="chatName">Select a conversation</h2>
+                </div>
+
+                <div id="chatMessages" class="messages-container">
+                    <!-- Messages will be loaded here -->
+                </div>
+
+                <div class="chat-input-area">
+                    <form id="messageForm" style="display:flex;gap:8px;width:100%;">
+                        <input type="text" id="messageInput" class="chat-input" placeholder="Type your message...">
+                        <button type="button" id="sendBtn" class="cta-primary" style="padding:10px 16px;"><i class="fas fa-paper-plane"></i> Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Barter — Skill Exchange Platform</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (navToggle && mainNav) {
+            navToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>

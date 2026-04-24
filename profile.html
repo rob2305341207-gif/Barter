@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Barter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html"><i class="fas fa-exchange-alt"></i> Barter</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="burger"></span>
+            </button>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="index.html">Home</a></li>
+                    <li><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li><a class="nav-link" href="chat.html">Messages</a></li>
+                    <li><a class="nav-link" href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="min-height:calc(100vh - 120px);padding:40px 0;">
+        <div class="container" style="max-width:900px;">
+            <div class="card-glass" style="padding:32px;">
+                <div style="margin-bottom:24px;">
+                    <h1 style="margin:0;color:#eafff5;">Profile Settings</h1>
+                    <p style="margin:8px 0 0;color:var(--muted);">Manage your skills and preferences</p>
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr 2fr;gap:24px;margin-bottom:32px;">
+                    <div style="text-align:center;">
+                        <img id="profilePhoto" src="" alt="Profile Photo" class="avatar large" style="display:block;margin:0 auto;">
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" id="profileName" class="form-input" placeholder="Your name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" id="profileEmail" class="form-input" placeholder="your@email.com" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Bio</label>
+                            <textarea id="aboutMe" placeholder="Tell us about yourself..." rows="3" class="form-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border:none;border-top:1px solid rgba(255,255,255,0.1);margin:24px 0;">
+
+                <div style="margin-bottom:32px;">
+                    <h3 style="margin-bottom:16px;">Skills I Can Teach</h3>
+                    <div id="teachSkills" class="skill-chips">
+                        <!-- Skills will be displayed here -->
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;">
+                        <input type="text" id="newSkillInput" placeholder="Add a skill..." class="form-input" style="flex:1;">
+                        <button class="cta-secondary" style="padding:10px 16px;">Add Skill</button>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:32px;">
+                    <h3 style="margin-bottom:16px;">Skills I Want to Learn</h3>
+                    <div id="learnSkills" class="skill-chips">
+                        <!-- Learning interests will be displayed here -->
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;">
+                        <input type="text" id="newInterestInput" placeholder="Add an interest..." class="form-input" style="flex:1;">
+                        <button class="cta-secondary" style="padding:10px 16px;">Add Interest</button>
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:12px;justify-content:flex-end;border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;">
+                    <button id="saveProfile" class="cta-primary"><i class="fas fa-check"></i> Save Changes</button>
+                    <button id="deleteProfile" class="cta-ghost" style="border-color:var(--danger);color:var(--danger);"><i class="fas fa-trash"></i> Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Barter — Skill Exchange Platform</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (navToggle && mainNav) {
+            navToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>
